@@ -16,6 +16,8 @@ int compute_align(const char* name, size_t start, size_t end) {
 }
 
 int main() {
+  compute_align("detail_data", offsetof(cs_detail, x86), sizeof(cs_detail));
+
   compute_align("arm64_op_data", offsetof(cs_arm64_op, reg), sizeof(cs_arm64_op));
   compute_align("arm_op_data", offsetof(cs_arm_op, reg), offsetof(cs_arm_op, subtracted));
   compute_align("mips_op_data", offsetof(cs_mips_op, reg), sizeof(cs_mips_op));

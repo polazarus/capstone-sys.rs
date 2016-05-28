@@ -6,7 +6,7 @@ extern crate libc;
 use libc::size_t;
 use std::os::raw::{c_void, c_int, c_uint, c_char};
 
-mod placeholders {
+pub mod placeholders {
     include!(concat!(env!("OUT_DIR"), "/placeholders.rs"));
 }
 
@@ -85,7 +85,6 @@ pub type cs_vsnprintf_t = Option<unsafe extern "C" fn()>;
 //                                                       -> c_int>;
 
 #[repr(C)]
-#[derive(Copy, Clone)]
 pub struct cs_opt_mem {
     pub malloc: cs_malloc_t,
     pub calloc: cs_calloc_t,
@@ -176,7 +175,6 @@ pub mod x86;
 pub mod xcore;
 
 #[repr(C)]
-#[derive(Copy)]
 pub struct cs_detail {
     pub regs_read: [u8; 12usize],
     pub regs_read_count: u8,
@@ -184,57 +182,37 @@ pub struct cs_detail {
     pub regs_write_count: u8,
     pub groups: [u8; 8usize],
     pub groups_count: u8,
-    pub _bindgen_data_1_: [u64; 185usize],
-}
-
-impl ::std::clone::Clone for cs_detail {
-    fn clone(&self) -> Self {
-        *self
-    }
+    data: placeholders::detail_data,
 }
 
 impl cs_detail {
-    pub unsafe fn x86(&mut self) -> *mut x86::cs_x86 {
-        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_1_);
-        ::std::mem::transmute(raw.offset(0))
+    pub unsafe fn x86(&self) -> &x86::cs_x86 {
+        ::std::mem::transmute(&self.data)
     }
-    pub unsafe fn arm64(&mut self) -> *mut arm64::cs_arm64 {
-        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_1_);
-        ::std::mem::transmute(raw.offset(0))
+    pub unsafe fn arm64(&self) -> &arm64::cs_arm64 {
+        ::std::mem::transmute(&self.data)
     }
-    pub unsafe fn arm(&mut self) -> *mut arm::cs_arm {
-        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_1_);
-        ::std::mem::transmute(raw.offset(0))
+    pub unsafe fn arm(&self) -> &arm::cs_arm {
+        ::std::mem::transmute(&self.data)
     }
-    pub unsafe fn mips(&mut self) -> *mut mips::cs_mips {
-        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_1_);
-        ::std::mem::transmute(raw.offset(0))
+    pub unsafe fn mips(&self) -> &mips::cs_mips {
+        ::std::mem::transmute(&self.data)
     }
-    pub unsafe fn ppc(&mut self) -> *mut ppc::cs_ppc {
-        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_1_);
-        ::std::mem::transmute(raw.offset(0))
+    pub unsafe fn ppc(&self) -> &ppc::cs_ppc {
+        ::std::mem::transmute(&self.data)
     }
-    pub unsafe fn sparc(&mut self) -> *mut sparc::cs_sparc {
-        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_1_);
-        ::std::mem::transmute(raw.offset(0))
+    pub unsafe fn sparc(&self) -> &sparc::cs_sparc {
+        ::std::mem::transmute(&self.data)
     }
-    pub unsafe fn sysz(&mut self) -> *mut sysz::cs_sysz {
-        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_1_);
-        ::std::mem::transmute(raw.offset(0))
+    pub unsafe fn sysz(&self) -> &sysz::cs_sysz {
+        ::std::mem::transmute(&self.data)
     }
-    pub unsafe fn xcore(&mut self) -> *mut xcore::cs_xcore {
-        let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_1_);
-        ::std::mem::transmute(raw.offset(0))
-    }
-}
-impl ::std::default::Default for cs_detail {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
+    pub unsafe fn xcore(&self) -> &xcore::cs_xcore {
+        ::std::mem::transmute(&self.data)
     }
 }
 
 #[repr(C)]
-#[derive(Copy)]
 pub struct cs_insn {
     pub id: c_uint,
     pub address: u64,
@@ -243,16 +221,6 @@ pub struct cs_insn {
     pub mnemonic: [c_char; 32usize],
     pub op_str: [c_char; 160usize],
     pub detail: *mut cs_detail,
-}
-impl ::std::clone::Clone for cs_insn {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::std::default::Default for cs_insn {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
 }
 
 #[derive(Copy, Clone, Eq, PartialEq, Debug)]
