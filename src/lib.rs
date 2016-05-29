@@ -201,7 +201,6 @@ pub type cs_skipdata_cb_t = Option<unsafe extern "C" fn(code: *const u8,
                                                         user_data: *mut c_void)
                                                         -> size_t>;
 #[repr(C)]
-#[derive(Copy, Clone)]
 pub struct cs_opt_skipdata {
     pub mnemonic: *const c_char,
     pub callback: cs_skipdata_cb_t,

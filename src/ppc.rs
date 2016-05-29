@@ -67,15 +67,19 @@ pub struct cs_ppc_op {
     data: placeholders::ppc_op_data,
 }
 impl cs_ppc_op {
+    #[inline]
     pub unsafe fn reg(&self) -> &c_uint {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn imm(&self) -> &i32 {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn mem(&self) -> &ppc_op_mem {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn crx(&self) -> &ppc_op_crx {
         ::std::mem::transmute(&self.data)
     }

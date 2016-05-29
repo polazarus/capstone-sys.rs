@@ -77,12 +77,15 @@ pub struct cs_sparc_op {
     data: placeholders::sparc_op_data,
 }
 impl cs_sparc_op {
+    #[inline]
     pub unsafe fn reg(&self) -> &c_uint {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn imm(&self) -> &i32 {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn mem(&self) -> &sparc_op_mem {
         ::std::mem::transmute(&self.data)
     }

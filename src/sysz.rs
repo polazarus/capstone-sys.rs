@@ -52,12 +52,15 @@ pub struct cs_sysz_op {
     data: placeholders::sysz_op_data,
 }
 impl cs_sysz_op {
+    #[inline]
     pub unsafe fn reg(&self) -> &c_uint {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn imm(&self) -> &i64 {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn mem(&self) -> &sysz_op_mem {
         ::std::mem::transmute(&self.data)
     }

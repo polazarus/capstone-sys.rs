@@ -30,12 +30,15 @@ pub struct cs_mips_op {
     data: placeholders::mips_op_data,
 }
 impl cs_mips_op {
+    #[inline]
     pub unsafe fn reg(&self) -> &c_uint {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn imm(&self) -> &i64 {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn mem(&self) -> &mips_op_mem {
         ::std::mem::transmute(&self.data)
     }

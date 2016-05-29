@@ -199,18 +199,23 @@ pub struct cs_arm_op {
     pub subtracted: u8,
 }
 impl cs_arm_op {
+    #[inline]
     pub unsafe fn reg(&self) -> &c_uint {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn imm(&self) -> &i32 {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn fp(&self) -> &c_double {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn mem(&self) -> &arm_op_mem {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn setend(&mut self) -> *mut arm_setend_type {
         ::std::mem::transmute(&self.data)
     }

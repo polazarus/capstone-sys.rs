@@ -26,12 +26,15 @@ pub struct cs_xcore_op {
     data: placeholders::xcore_op_data,
 }
 impl cs_xcore_op {
+    #[inline]
     pub unsafe fn reg(&mut self) -> &c_uint {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn imm(&self) -> &i32 {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn mem(&self) -> &xcore_op_mem {
         ::std::mem::transmute(&self.data)
     }

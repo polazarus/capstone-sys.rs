@@ -367,15 +367,19 @@ pub struct cs_x86_op {
     pub avx_zero_opmask: u8,
 }
 impl cs_x86_op {
+    #[inline]
     pub unsafe fn reg(&mut self) -> &x86_reg {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn imm(&mut self) -> &i64 {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn fp(&mut self) -> &c_double {
         ::std::mem::transmute(&self.data)
     }
+    #[inline]
     pub unsafe fn mem(&mut self) -> &x86_op_mem {
         ::std::mem::transmute(&self.data)
     }
