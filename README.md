@@ -10,7 +10,6 @@ capstone installed (for now)
 
 ## TODO
 
-  * Systemize the use of constants for C enums rather than Rust safe enum
   * Test and port the compilation for the union placholders computation under other platforms
   * Add an automatic system to find or build capstone
 
