@@ -402,7 +402,7 @@ pub struct cs_x86 {
     pub operands: [cs_x86_op; 8usize],
 }
 
-fake_enum_norec! {
+fake_enum_nonrec! {
     pub enum x86_insn {
         X86_INS_INVALID = 0,
         X86_INS_AAA = 1,

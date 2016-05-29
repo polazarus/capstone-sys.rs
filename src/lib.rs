@@ -11,7 +11,7 @@ pub mod placeholders {
     include!(concat!(env!("OUT_DIR"), "/placeholders.rs"));
 }
 
-macro_rules! fake_enum_norec {
+macro_rules! fake_enum_nonrec {
     ($( #[ $attrs:meta ] )* pub enum $name:ident { $($variant:ident = $value:expr,)* }) => {
         #[cfg(target_env = "msvc")]
         $( #[ $attrs ] )*

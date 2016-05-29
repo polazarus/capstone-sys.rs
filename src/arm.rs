@@ -367,7 +367,7 @@ fake_enum! {
     }
 }
 
-fake_enum_norec! {
+fake_enum_nonrec! {
     pub enum arm_insn {
         ARM_INS_INVALID = 0,
         ARM_INS_ADC = 1,
