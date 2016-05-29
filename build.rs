@@ -58,6 +58,4 @@ fn main() {
 
     let out_dir = env::var("OUT_DIR").unwrap();
     compute_place_holders(&out_dir, &include_paths);
-
-    panic!("nope");
 }
