@@ -1156,4 +1156,3 @@ pub enum arm64_insn_group {
     ARM64_GRP_CRC = 131,
     ARM64_GRP_ENDING = 132,
 }
-

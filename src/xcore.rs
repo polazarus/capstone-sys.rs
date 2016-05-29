@@ -210,4 +210,3 @@ pub enum xcore_insn_group {
     XCORE_GRP_JUMP = 1,
     XCORE_GRP_ENDING = 2,
 }
-

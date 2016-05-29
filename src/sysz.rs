@@ -822,4 +822,3 @@ pub enum sysz_insn_group {
     SYSZ_GRP_LOADSTOREONCOND = 132,
     SYSZ_GRP_ENDING = 133,
 }
-

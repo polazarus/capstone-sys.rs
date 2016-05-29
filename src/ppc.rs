@@ -1242,4 +1242,3 @@ pub enum ppc_insn_group {
     PPC_GRP_PPC6XX = 137,
     PPC_GRP_ENDING = 138,
 }
-

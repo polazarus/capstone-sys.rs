@@ -873,4 +873,3 @@ pub enum mips_insn_group {
     MIPS_GRP_GP64BIT = 160,
     MIPS_GRP_ENDING = 161,
 }
-

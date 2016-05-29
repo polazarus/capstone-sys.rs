@@ -2,6 +2,8 @@
 
 Rust low-level binding to [Capstone disassembler](http://www.capstone-engine.org/).
 
+[Documentation](http://polazarus.github.io/capstone-sys.rs/capstone_sys/)
+
 ## Requirements
 
 capstone installed (for now)

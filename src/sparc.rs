@@ -492,4 +492,3 @@ pub enum sparc_insn_group {
     SPARC_GRP_64BIT = 134,
     SPARC_GRP_ENDING = 135,
 }
-
