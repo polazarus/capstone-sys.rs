@@ -29,6 +29,8 @@ fn generic(arch: cs_arch, mode: cs_mode, code: &[u8], expected_size: size_t, exp
 
     let mut instrs: *mut cs_insn = ::std::ptr::null_mut();
     let size = unsafe { cs_disasm(handle, code.as_ptr(), code.len(), 0, 0 /* read as much as possible */, &mut instrs) };
+    let err = unsafe { cs_errno(handle) };
+    assert_eq!(err, CS_ERR_OK);
     assert_eq!(size, expected_size);
     assert!(!instrs.is_null());
 
