@@ -58,6 +58,10 @@ fake_enum! {
         CS_ARCH_MAX = 8,
         /// All architecture for `cs_support`
         CS_ARCH_ALL = 0xFFFF,
+        /// Support value to verify diet mode of the engine.
+        CS_SUPPORT_DIET = CS_ARCH_ALL+1,
+        /// Support value to verify X86 reduce mode of the engine.
+        CS_SUPPORT_X86_REDUCE = CS_ARCH_ALL+2,
     }
 }
 
