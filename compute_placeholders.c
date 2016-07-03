@@ -2,7 +2,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include <capstone/capstone.h>
+#include <capstone.h>
 
 int compute_align(const char* name, size_t start, size_t end) {
   int align = 1;

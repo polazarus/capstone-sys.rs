@@ -7,8 +7,35 @@ extern crate libc;
 use libc::size_t;
 use std::os::raw::{c_void, c_int, c_uint, c_char};
 
+#[cfg(not(any(target_arch="x86_64",target_arch="i686")))]
 pub mod placeholders {
     include!(concat!(env!("OUT_DIR"), "/placeholders.rs"));
+}
+
+#[cfg(target_arch="x86_64")]
+pub mod placeholders {
+    pub type detail_data = [u64; 185];
+    pub type arm64_op_data = [u64; 2];
+    pub type arm_op_data = [u64; 2];
+    pub type mips_op_data = [u64; 2];
+    pub type ppc_op_data = [u32; 3];
+    pub type sparc_op_data = [u32; 2];
+    pub type sysz_op_data = [u64; 3];
+    pub type x86_op_data = [u64; 3];
+    pub type xcore_op_data = [u32; 3];
+}
+
+#[cfg(target_arch="i686")]
+pub mod placeholders {
+    pub type detail_data = [u32; 333];
+    pub type arm64_op_data = [u32; 3];
+    pub type arm_op_data = [u64; 2];
+    pub type mips_op_data = [u32; 3];
+    pub type ppc_op_data = [u32; 3];
+    pub type sparc_op_data = [u32; 2];
+    pub type sysz_op_data = [u32; 5];
+    pub type x86_op_data = [u32; 6];
+    pub type xcore_op_data = [u32; 3];
 }
 
 #[macro_use]
