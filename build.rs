@@ -12,7 +12,30 @@ macro_rules! errln {
     }
 }
 
-fn compute_place_holders(out_dir: &str, inc_dir: &str) {
+fn main() {
+    let target = env::var("TARGET").expect("cannot get TARGET");
+    let host = env::var("HOST").expect("cannot get HOST");
+    let msvc = target.contains("msvc");
+
+    // Check if capstone is already cloned
+    if !Path::new("capstone/.git").exists() {
+        let _ = Command::new("git").args(&["submodule", "update", "--init"]).status();
+    }
+
+    if !target.starts_with("x86_64-") && !target.starts_with("i686") {
+        let out_dir = env::var("OUT_DIR").unwrap();
+        compute_place_holders(&out_dir, "capstone/include", msvc);
+    }
+
+    if !Path::new("capstone/libcapstone.a").exists() {
+        build_capstone(&target, &host, msvc);
+    }
+
+    println!("cargo:rustc-link-search=native={}/capstone", env::var("CARGO_MANIFEST_DIR").unwrap());
+    println!("cargo:rustc-link-lib=static=capstone")
+}
+
+fn compute_place_holders(out_dir: &str, inc_dir: &str, msvc: bool) {
     let out_rs = Path::new(out_dir).join("placeholders.rs");
     let out_exe = Path::new(out_dir).join("compute_placeholders.exe");
 
@@ -21,14 +44,14 @@ fn compute_place_holders(out_dir: &str, inc_dir: &str) {
 
     let mut command = config.get_compiler().to_command();
     command.arg("compute_placeholders.c");
-    if env::var("TARGET").expect("cannot get TARGET").contains("msvc") {
+    if msvc {
         command.arg("/OUT");
     } else {
         command.arg("-o");
     }
     command.arg(&out_exe)
-           .stdout(Stdio::null())
-           .stderr(Stdio::null());
+        .stdout(Stdio::null())
+        .stderr(Stdio::null());
 
     errln!("{:?}", command);
     if command.status().is_ok() {
@@ -42,40 +65,14 @@ fn compute_place_holders(out_dir: &str, inc_dir: &str) {
     }
 }
 
-fn main() {
-
-    // Check if capstone is already cloned
-    if !Path::new("capstone/.git").exists() {
-        let _ = Command::new("git").args(&["submodule", "update", "--init"]).status();
-    }
-
-    let target = env::var("TARGET").unwrap();
-    let host = env::var("HOST").unwrap();
-
-    if !target.starts_with("x86_64-") && !target.starts_with("i686") {
-        let out_dir = env::var("OUT_DIR").unwrap();
-        compute_place_holders(&out_dir, "capstone/include");
-    }
-
-    if !Path::new("capstone/libcapstone.a").exists() {
-        build_capstone(&target, &host);
-    }
-    
-    println!("cargo:rustc-link-search=native=capstone");
-    println!("cargo:rustc-link-lib=static=capstone")
-}
-
-fn build_capstone(target: &str, host: &str) {
+fn build_capstone(target: &str, host: &str, msvc: bool) {
 
     let host_windows = host.contains("windows");
-
-    // let windows = target.contains("windows");
-    let msvc = target.contains("msvc");
 
     if msvc && !host_windows {
         panic!("cannot cross compile to msvc");
     }
-    
+
     if msvc {
         panic!("msvc build not supported yet");
     }
@@ -83,6 +80,7 @@ fn build_capstone(target: &str, host: &str) {
     let mut cmd = Command::new("bash");
     cmd.current_dir("capstone")
         .arg("make.sh")
+        // .env("CFLAGS", "-flto")
         .env("CAPSTONE_SHARED", "no")
         .env("CAPSTONE_STATIC", "yes");
 
@@ -96,9 +94,10 @@ fn build_capstone(target: &str, host: &str) {
         // not perfect but hey
         cmd.arg("nix32");
     } else {
-        cmd.env("CROSS", target.to_string()+"-");
+        cmd.env("CROSS", target.to_string() + "-");
     }
 
+    errln!("build capstone: {:?}", cmd);
 
     let res = cmd.status();
     if let Ok(res) = res {

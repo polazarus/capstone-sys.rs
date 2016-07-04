@@ -120,7 +120,7 @@ fake_enum! {
         /// General Purpose Registers are 64-bit wide (MIPS)
         CS_MODE_MIPSGP64 = 1 << 7,
         /// SparcV9 mode (Sparc)
-        CS_MODE_V9 = 1 << 31,
+        CS_MODE_V9 = 1 << 4,
         /// big-endian mode
         CS_MODE_BIG_ENDIAN = 1 << 31,
         /// Mips32 ISA (Mips)
