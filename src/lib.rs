@@ -8,12 +8,12 @@ use libc::size_t;
 use std::os::raw::{c_void, c_int, c_uint, c_char};
 
 #[cfg(not(any(target_arch="x86_64",target_arch="i686")))]
-pub mod placeholders {
+mod placeholders {
     include!(concat!(env!("OUT_DIR"), "/placeholders.rs"));
 }
 
 #[cfg(target_arch="x86_64")]
-pub mod placeholders {
+mod placeholders {
     pub type detail_data = [u64; 185];
     pub type arm64_op_data = [u64; 2];
     pub type arm_op_data = [u64; 2];
@@ -26,7 +26,7 @@ pub mod placeholders {
 }
 
 #[cfg(target_arch="i686")]
-pub mod placeholders {
+mod placeholders {
     pub type detail_data = [u32; 333];
     pub type arm64_op_data = [u32; 3];
     pub type arm_op_data = [u64; 2];
@@ -329,13 +329,37 @@ fake_enum! {
 
 #[link(name = "capstone", kind = "dylib")]
 extern "C" {
+    /// Return combined API version & major and minor version numbers.
     pub fn cs_version(major: *mut c_int, minor: *mut c_int) -> c_uint;
     pub fn cs_support(query: c_int) -> u8;
+
+    /// Initialize a Capstone `handle` (non-null pointer) for a given architecture type `arch`
+    /// (`CS_ARCH_*`) and hardware `mode` (`CS_MODE_*`).
+    ///
+    /// @return CS_ERR_OK on success, or other value on failure (refer to cs_err enum for detailed
+    /// error).
     pub fn cs_open(arch: cs_arch, mode: cs_mode, handle: *mut csh) -> cs_err;
+
+    /// Close a Capstone `handle` (and zeroed it).
+    ///
+    /// Release the handle when it is not used anymore but only when there is no
+    /// longer usage of Capstone, in particular no access to `cs_insn` array.
     pub fn cs_close(handle: *mut csh) -> cs_err;
-    pub fn cs_option(handle: csh, _type: cs_opt_type, value: size_t) -> cs_err;
+
+    /// Set option `typ` with given `value` for disassembling engine at runtime.
+    pub fn cs_option(handle: csh, typ: cs_opt_type, value: size_t) -> cs_err;
+
+    /// Report the last error number for the given Capstone `handle` when some API function fail.
+    /// Like glibc's `errno`, `cs_errno` might not retain its old value once accessed.
     pub fn cs_errno(handle: csh) -> cs_err;
+
+    /// Return a string describing given error `code`.
     pub fn cs_strerror(code: cs_err) -> *const c_char;
+
+    /// Disassemble binary code in context of `handle`, given the `code` buffer of size
+    /// `code_size`, the base `address` and the desired number (`count`) of instructions to decode
+    /// and set a pointer to an array of instructions and returns the number of decoded
+    /// instructions and the size of the buffers.
     pub fn cs_disasm(handle: csh,
                      code: *const u8,
                      code_size: size_t,
@@ -343,21 +367,36 @@ extern "C" {
                      count: size_t,
                      insn: *mut *mut cs_insn)
                      -> size_t;
+
+    /// Free a Capstone allocated array of instruction.
     pub fn cs_free(insn: *mut cs_insn, count: size_t);
+
+    /// Allocate a single instruction to be freed with `cs_free(insn, 1)`.
     pub fn cs_malloc(handle: csh) -> *mut cs_insn;
+
+    /// Fast API to disassemble binary code, given the code buffer, size, address and number of
+    /// instructions to be decoded.
     pub fn cs_disasm_iter(handle: csh,
                           code: *mut *const u8,
                           size: *mut size_t,
                           address: *mut u64,
                           insn: *mut cs_insn)
                           -> u8;
+
     pub fn cs_reg_name(handle: csh, reg_id: c_uint) -> *const c_char;
+
     pub fn cs_insn_name(handle: csh, insn_id: c_uint) -> *const c_char;
+
     pub fn cs_group_name(handle: csh, group_id: c_uint) -> *const c_char;
+
     pub fn cs_insn_group(handle: csh, insn: *const cs_insn, group_id: c_uint) -> u8;
+
     pub fn cs_reg_read(handle: csh, insn: *const cs_insn, reg_id: c_uint) -> u8;
+
     pub fn cs_reg_write(handle: csh, insn: *const cs_insn, reg_id: c_uint) -> u8;
+
     pub fn cs_op_count(handle: csh, insn: *const cs_insn, op_type: c_uint) -> c_int;
+
     pub fn cs_op_index(handle: csh,
                        insn: *const cs_insn,
                        op_type: c_uint,
