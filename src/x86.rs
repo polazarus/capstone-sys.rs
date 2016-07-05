@@ -2,6 +2,7 @@ use libc::{c_int, c_uint, c_double};
 use placeholders;
 
 fake_enum! {
+    /// X86 registers `X86_REG_*`
     pub enum x86_reg {
         X86_REG_INVALID = 0,
         X86_REG_AH = 1,
@@ -242,6 +243,7 @@ fake_enum! {
 }
 
 fake_enum! {
+    /// Operand type for instruction's operands `X86_OP_*`
     pub enum x86_op_type {
         X86_OP_INVALID = 0,
         X86_OP_REG = 1,
@@ -252,6 +254,7 @@ fake_enum! {
 }
 
 fake_enum! {
+    /// AVX broadcast type `X86_AVX_*`
     pub enum x86_avx_bcast {
         X86_AVX_BCAST_INVALID = 0,
         X86_AVX_BCAST_2 = 1,
@@ -262,6 +265,7 @@ fake_enum! {
 }
 
 fake_enum! {
+    /// SSE Code Condition type `X86_SSE_CC_*`
     pub enum x86_sse_cc {
         X86_SSE_CC_INVALID = 0,
         X86_SSE_CC_EQ = 1,
@@ -284,6 +288,7 @@ fake_enum! {
 }
 
 fake_enum! {
+    /// AVX Code Condition type `X86_AVX_CC_*`
     pub enum x86_avx_cc {
         X86_AVX_CC_INVALID = 0,
         X86_AVX_CC_EQ = 1,
@@ -322,6 +327,7 @@ fake_enum! {
 }
 
 fake_enum! {
+    /// AVX static rounding mode type `X86_AVX_RM_*`
     pub enum x86_avx_rm {
         X86_AVX_RM_INVALID = 0,
         X86_AVX_RM_RN = 1,
@@ -332,6 +338,7 @@ fake_enum! {
 }
 
 fake_enum! {
+    /// Instruction prefixes `X86_PREFIX_*` - to be used in cs_x86.prefix[]
     pub enum x86_prefix {
         X86_PREFIX_LOCK = 240,
         X86_PREFIX_REP = 243,
@@ -347,6 +354,8 @@ fake_enum! {
     }
 }
 
+/// Instruction's operand referring to memory
+/// This is associated with `X86_OP_MEM` operand type above
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct x86_op_mem {
@@ -357,6 +366,7 @@ pub struct x86_op_mem {
     pub disp: i64,
 }
 
+/// Instruction operand
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct cs_x86_op {
@@ -385,6 +395,7 @@ impl cs_x86_op {
     }
 }
 
+/// Instruction structure
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct cs_x86 {
@@ -407,6 +418,7 @@ pub struct cs_x86 {
 }
 
 fake_enum_nonrec! {
+    /// X86 instructions `X86_INS_*`
     pub enum x86_insn {
         X86_INS_INVALID = 0,
         X86_INS_AAA = 1,
@@ -1708,6 +1720,7 @@ fake_enum_nonrec! {
 }
 
 fake_enum! {
+    /// Group of X86 instructions `X86_GRP_*`
     pub enum x86_insn_group {
         X86_GRP_INVALID = 0,
         X86_GRP_JUMP = 1,
