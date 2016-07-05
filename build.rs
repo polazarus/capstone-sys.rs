@@ -3,7 +3,7 @@ extern crate gcc;
 use std::io::prelude::*;
 use std::env;
 use std::fs::File;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 
 macro_rules! errln {
@@ -15,6 +15,7 @@ macro_rules! errln {
 fn main() {
     let target = env::var("TARGET").expect("cannot get TARGET");
     let host = env::var("HOST").expect("cannot get HOST");
+    let out_dir = PathBuf::from(env::var("OUT_DIR").expect("cannot get OUT_DIR"));
     let msvc = target.contains("msvc");
 
     // Check if capstone is already cloned
@@ -23,21 +24,24 @@ fn main() {
     }
 
     if !target.starts_with("x86_64-") && !target.starts_with("i686") {
-        let out_dir = env::var("OUT_DIR").unwrap();
         compute_place_holders(&out_dir, "capstone/include", msvc);
     }
 
-    if !Path::new("capstone/libcapstone.a").exists() {
-        build_capstone(&target, &host, msvc);
+    let libcapstone = out_dir.join("libcapstone.a");
+    if !libcapstone.exists() {
+        build_capstone(&out_dir, &target, &host, msvc);
+    }
+    if !libcapstone.exists() {
+        panic!("cannot find libcapstone")
     }
 
-    println!("cargo:rustc-link-search=native={}/capstone", env::var("CARGO_MANIFEST_DIR").unwrap());
+    println!("cargo:rustc-link-search=native={}", out_dir.display());
     println!("cargo:rustc-link-lib=static=capstone")
 }
 
-fn compute_place_holders(out_dir: &str, inc_dir: &str, msvc: bool) {
-    let out_rs = Path::new(out_dir).join("placeholders.rs");
-    let out_exe = Path::new(out_dir).join("compute_placeholders.exe");
+fn compute_place_holders(out_dir: &Path, inc_dir: &str, msvc: bool) {
+    let out_rs = out_dir.join("placeholders.rs");
+    let out_exe = out_dir.join("compute_placeholders.exe");
 
     let mut config = gcc::Config::new();
     config.include(inc_dir);
@@ -65,7 +69,7 @@ fn compute_place_holders(out_dir: &str, inc_dir: &str, msvc: bool) {
     }
 }
 
-fn build_capstone(target: &str, host: &str, msvc: bool) {
+fn build_capstone(out_dir: &Path, target: &str, host: &str, msvc: bool) {
 
     let host_windows = host.contains("windows");
 
@@ -81,6 +85,8 @@ fn build_capstone(target: &str, host: &str, msvc: bool) {
     cmd.current_dir("capstone")
         .arg("make.sh")
         // .env("CFLAGS", "-flto")
+        .env("BUILDDIR", out_dir)
+        .env("CAPSTONE_BUILD_CORE_ONLY", "yes")
         .env("CAPSTONE_SHARED", "no")
         .env("CAPSTONE_STATIC", "yes");
 
