@@ -81,9 +81,8 @@ fn build_capstone(out_dir: &Path, target: &str, host: &str, msvc: bool) {
         panic!("msvc build not supported yet");
     }
 
-    let mut cmd = Command::new("bash");
+    let mut cmd = Command::new("make");
     cmd.current_dir("capstone")
-        .arg("make.sh")
         // .env("CFLAGS", "-flto")
         .env("BUILDDIR", out_dir)
         .env("CAPSTONE_BUILD_CORE_ONLY", "yes")
