@@ -2,6 +2,8 @@
 
 Rust low-level binding to [Capstone disassembler](http://www.capstone-engine.org/).
 
+[![Build Status](https://travis-ci.org/polazarus/capstone-sys.rs.svg?branch=master)](https://travis-ci.org/polazarus/capstone-sys.rs)
+
 [Documentation](http://polazarus.github.io/capstone-sys.rs/capstone_sys/)
 
 ## Requirements
