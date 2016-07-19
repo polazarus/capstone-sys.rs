@@ -1,4 +1,4 @@
-use libc::{c_uint, c_int, c_double};
+use std::os::raw::{c_uint, c_int, c_double};
 use placeholders;
 
 fake_enum! {

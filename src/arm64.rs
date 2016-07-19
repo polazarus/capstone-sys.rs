@@ -1,4 +1,4 @@
-use libc::{c_int, c_uint, c_double};
+use std::os::raw::{c_int, c_uint, c_double};
 
 fake_enum! {
     pub enum arm64_shifter {

@@ -1,7 +1,6 @@
 extern crate capstone_sys;
-extern crate libc;
 
-use libc::{c_char, size_t};
+use std::os::raw::c_char;
 use capstone_sys::*;
 use capstone_sys::x86::*;
 

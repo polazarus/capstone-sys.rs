@@ -17,10 +17,9 @@
 #![allow(dead_code)]
 #![recursion_limit="1000"]
 
-extern crate libc;
-
-use libc::size_t;
 use std::os::raw::{c_void, c_int, c_uint, c_char};
+
+pub type size_t = usize;
 
 #[cfg(not(any(target_arch="x86_64",target_arch="i686")))]
 mod placeholders {
