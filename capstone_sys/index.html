@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `capstone_sys` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, capstone_sys">
+
+    <title>capstone_sys - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'></p><script>window.sidebarCurrent = {name: 'capstone_sys', ty: 'mod', relpath: '../'};</script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>capstone_sys</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-0' class='srclink' href='../src/capstone_sys/src/lib.rs.html#1-448' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Capstone low-level binding for Rust.</p>
+
+<p>See <a href="http://www.capstone-engine.org/lang_c.html">Capstone&#39;s C language documentation</a> for more
+information.</p>
+
+<h1 id='safety' class='section-header'><a href='#safety'>Safety</a></h1>
+<p>Obviously unsafe.</p>
+
+<p>Every <code>handle</code> shall be initialied first with <code>cs_open</code>.</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<p>TODO</p>
+</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='arm/index.html'
+                                  title='capstone_sys::arm'>arm</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='arm64/index.html'
+                                  title='capstone_sys::arm64'>arm64</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='mips/index.html'
+                                  title='capstone_sys::mips'>mips</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='ppc/index.html'
+                                  title='capstone_sys::ppc'>ppc</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='sparc/index.html'
+                                  title='capstone_sys::sparc'>sparc</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='sysz/index.html'
+                                  title='capstone_sys::sysz'>sysz</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='x86/index.html'
+                                  title='capstone_sys::x86'>x86</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='xcore/index.html'
+                                  title='capstone_sys::xcore'>xcore</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.cs_detail.html'
+                                  title='capstone_sys::cs_detail'>cs_detail</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.cs_insn.html'
+                                  title='capstone_sys::cs_insn'>cs_insn</a></td>
+                           <td class='docblock short'>
+                                <p>Information on a disassembled instruction</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.cs_opt_mem.html'
+                                  title='capstone_sys::cs_opt_mem'>cs_opt_mem</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.cs_opt_skipdata.html'
+                                  title='capstone_sys::cs_opt_skipdata'>cs_opt_skipdata</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ARCH_ALL.html'
+                                  title='capstone_sys::CS_ARCH_ALL'>CS_ARCH_ALL</a></td>
+                           <td class='docblock short'>
+                                <p>All architecture for <code>cs_support</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ARCH_ARM.html'
+                                  title='capstone_sys::CS_ARCH_ARM'>CS_ARCH_ARM</a></td>
+                           <td class='docblock short'>
+                                <p>ARM architecture (including Thumb, Thumb-2)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ARCH_ARM64.html'
+                                  title='capstone_sys::CS_ARCH_ARM64'>CS_ARCH_ARM64</a></td>
+                           <td class='docblock short'>
+                                <p>ARM-64, also called AArch64</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ARCH_MAX.html'
+                                  title='capstone_sys::CS_ARCH_MAX'>CS_ARCH_MAX</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ARCH_MIPS.html'
+                                  title='capstone_sys::CS_ARCH_MIPS'>CS_ARCH_MIPS</a></td>
+                           <td class='docblock short'>
+                                <p>Mips architecture</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ARCH_PPC.html'
+                                  title='capstone_sys::CS_ARCH_PPC'>CS_ARCH_PPC</a></td>
+                           <td class='docblock short'>
+                                <p>PowerPC architecture</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ARCH_SPARC.html'
+                                  title='capstone_sys::CS_ARCH_SPARC'>CS_ARCH_SPARC</a></td>
+                           <td class='docblock short'>
+                                <p>Sparc architecture</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ARCH_SYSZ.html'
+                                  title='capstone_sys::CS_ARCH_SYSZ'>CS_ARCH_SYSZ</a></td>
+                           <td class='docblock short'>
+                                <p>SystemZ architecture</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ARCH_X86.html'
+                                  title='capstone_sys::CS_ARCH_X86'>CS_ARCH_X86</a></td>
+                           <td class='docblock short'>
+                                <p>X86 architecture (including x86 &amp; x86-64)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ARCH_XCORE.html'
+                                  title='capstone_sys::CS_ARCH_XCORE'>CS_ARCH_XCORE</a></td>
+                           <td class='docblock short'>
+                                <p>XCore architecture</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ERR_ARCH.html'
+                                  title='capstone_sys::CS_ERR_ARCH'>CS_ERR_ARCH</a></td>
+                           <td class='docblock short'>
+                                <p>Unsupported architecture: cs_open()</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ERR_CSH.html'
+                                  title='capstone_sys::CS_ERR_CSH'>CS_ERR_CSH</a></td>
+                           <td class='docblock short'>
+                                <p>Invalid csh argument: cs_close(), cs_errno(), cs_option()</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ERR_DETAIL.html'
+                                  title='capstone_sys::CS_ERR_DETAIL'>CS_ERR_DETAIL</a></td>
+                           <td class='docblock short'>
+                                <p>Information is unavailable because detail option is OFF</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ERR_DIET.html'
+                                  title='capstone_sys::CS_ERR_DIET'>CS_ERR_DIET</a></td>
+                           <td class='docblock short'>
+                                <p>Access irrelevant data in &quot;diet&quot; engine</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ERR_HANDLE.html'
+                                  title='capstone_sys::CS_ERR_HANDLE'>CS_ERR_HANDLE</a></td>
+                           <td class='docblock short'>
+                                <p>Invalid handle: cs_op_count(), cs_op_index()</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ERR_MEM.html'
+                                  title='capstone_sys::CS_ERR_MEM'>CS_ERR_MEM</a></td>
+                           <td class='docblock short'>
+                                <p>Out-Of-Memory error: cs_open(), cs_disasm(), cs_disasm_iter()</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ERR_MEMSETUP.html'
+                                  title='capstone_sys::CS_ERR_MEMSETUP'>CS_ERR_MEMSETUP</a></td>
+                           <td class='docblock short'>
+                                <p>Dynamic memory management uninitialized (see CS_OPT_MEM)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ERR_MODE.html'
+                                  title='capstone_sys::CS_ERR_MODE'>CS_ERR_MODE</a></td>
+                           <td class='docblock short'>
+                                <p>Invalid/unsupported mode: cs_open()</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ERR_OK.html'
+                                  title='capstone_sys::CS_ERR_OK'>CS_ERR_OK</a></td>
+                           <td class='docblock short'>
+                                <p>No error: everything was fine</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ERR_OPTION.html'
+                                  title='capstone_sys::CS_ERR_OPTION'>CS_ERR_OPTION</a></td>
+                           <td class='docblock short'>
+                                <p>Invalid/unsupported option: cs_option()</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ERR_SKIPDATA.html'
+                                  title='capstone_sys::CS_ERR_SKIPDATA'>CS_ERR_SKIPDATA</a></td>
+                           <td class='docblock short'>
+                                <p>Access irrelevant data for &quot;data&quot; instruction in SKIPDATA mode</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ERR_VERSION.html'
+                                  title='capstone_sys::CS_ERR_VERSION'>CS_ERR_VERSION</a></td>
+                           <td class='docblock short'>
+                                <p>Unsupported version (bindings)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ERR_X86_ATT.html'
+                                  title='capstone_sys::CS_ERR_X86_ATT'>CS_ERR_X86_ATT</a></td>
+                           <td class='docblock short'>
+                                <p>X86 AT&amp;T syntax is unsupported (opt-out at compile time)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_ERR_X86_INTEL.html'
+                                  title='capstone_sys::CS_ERR_X86_INTEL'>CS_ERR_X86_INTEL</a></td>
+                           <td class='docblock short'>
+                                <p>X86 Intel syntax is unsupported (opt-out at compile time)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_GRP_CALL.html'
+                                  title='capstone_sys::CS_GRP_CALL'>CS_GRP_CALL</a></td>
+                           <td class='docblock short'>
+                                <p>all call instructions</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_GRP_INT.html'
+                                  title='capstone_sys::CS_GRP_INT'>CS_GRP_INT</a></td>
+                           <td class='docblock short'>
+                                <p>all interrupt instructions (int+syscall)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_GRP_INVALID.html'
+                                  title='capstone_sys::CS_GRP_INVALID'>CS_GRP_INVALID</a></td>
+                           <td class='docblock short'>
+                                <p>uninitialized/invalid group.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_GRP_IRET.html'
+                                  title='capstone_sys::CS_GRP_IRET'>CS_GRP_IRET</a></td>
+                           <td class='docblock short'>
+                                <p>all interrupt return instructions</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_GRP_JUMP.html'
+                                  title='capstone_sys::CS_GRP_JUMP'>CS_GRP_JUMP</a></td>
+                           <td class='docblock short'>
+                                <p>all jump instructions (conditional+direct+indirect jumps)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_GRP_RET.html'
+                                  title='capstone_sys::CS_GRP_RET'>CS_GRP_RET</a></td>
+                           <td class='docblock short'>
+                                <p>all return instructions</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_MODE_16.html'
+                                  title='capstone_sys::CS_MODE_16'>CS_MODE_16</a></td>
+                           <td class='docblock short'>
+                                <p>16-bit mode X86</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_MODE_32.html'
+                                  title='capstone_sys::CS_MODE_32'>CS_MODE_32</a></td>
+                           <td class='docblock short'>
+                                <p>32-bit mode X86</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_MODE_64.html'
+                                  title='capstone_sys::CS_MODE_64'>CS_MODE_64</a></td>
+                           <td class='docblock short'>
+                                <p>64-bit mode X86</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_MODE_ARM.html'
+                                  title='capstone_sys::CS_MODE_ARM'>CS_MODE_ARM</a></td>
+                           <td class='docblock short'>
+                                <p>32-bit ARM</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_MODE_BIG_ENDIAN.html'
+                                  title='capstone_sys::CS_MODE_BIG_ENDIAN'>CS_MODE_BIG_ENDIAN</a></td>
+                           <td class='docblock short'>
+                                <p>big-endian mode</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_MODE_LITTLE_ENDIAN.html'
+                                  title='capstone_sys::CS_MODE_LITTLE_ENDIAN'>CS_MODE_LITTLE_ENDIAN</a></td>
+                           <td class='docblock short'>
+                                <p>Little-endian mode (default mode)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_MODE_MCLASS.html'
+                                  title='capstone_sys::CS_MODE_MCLASS'>CS_MODE_MCLASS</a></td>
+                           <td class='docblock short'>
+                                <p>ARM&#39;s Cortex-M series</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_MODE_MICRO.html'
+                                  title='capstone_sys::CS_MODE_MICRO'>CS_MODE_MICRO</a></td>
+                           <td class='docblock short'>
+                                <p>MicroMips mode (MIPS)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_MODE_MIPS3.html'
+                                  title='capstone_sys::CS_MODE_MIPS3'>CS_MODE_MIPS3</a></td>
+                           <td class='docblock short'>
+                                <p>Mips III ISA</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_MODE_MIPS32.html'
+                                  title='capstone_sys::CS_MODE_MIPS32'>CS_MODE_MIPS32</a></td>
+                           <td class='docblock short'>
+                                <p>Mips32 ISA (Mips)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_MODE_MIPS32R6.html'
+                                  title='capstone_sys::CS_MODE_MIPS32R6'>CS_MODE_MIPS32R6</a></td>
+                           <td class='docblock short'>
+                                <p>Mips32r6 ISA</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_MODE_MIPS64.html'
+                                  title='capstone_sys::CS_MODE_MIPS64'>CS_MODE_MIPS64</a></td>
+                           <td class='docblock short'>
+                                <p>Mips64 ISA (Mips)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_MODE_MIPSGP64.html'
+                                  title='capstone_sys::CS_MODE_MIPSGP64'>CS_MODE_MIPSGP64</a></td>
+                           <td class='docblock short'>
+                                <p>General Purpose Registers are 64-bit wide (MIPS)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_MODE_THUMB.html'
+                                  title='capstone_sys::CS_MODE_THUMB'>CS_MODE_THUMB</a></td>
+                           <td class='docblock short'>
+                                <p>ARM&#39;s Thumb mode, including Thumb-2</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_MODE_V8.html'
+                                  title='capstone_sys::CS_MODE_V8'>CS_MODE_V8</a></td>
+                           <td class='docblock short'>
+                                <p>ARMv8 A32 encodings for ARM</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_MODE_V9.html'
+                                  title='capstone_sys::CS_MODE_V9'>CS_MODE_V9</a></td>
+                           <td class='docblock short'>
+                                <p>SparcV9 mode (Sparc)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_OPT_DETAIL.html'
+                                  title='capstone_sys::CS_OPT_DETAIL'>CS_OPT_DETAIL</a></td>
+                           <td class='docblock short'>
+                                <p>Break down instruction structure into details</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_OPT_MEM.html'
+                                  title='capstone_sys::CS_OPT_MEM'>CS_OPT_MEM</a></td>
+                           <td class='docblock short'>
+                                <p>User-defined dynamic memory related functions</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_OPT_MODE.html'
+                                  title='capstone_sys::CS_OPT_MODE'>CS_OPT_MODE</a></td>
+                           <td class='docblock short'>
+                                <p>Change engine&#39;s mode at run-time</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_OPT_OFF.html'
+                                  title='capstone_sys::CS_OPT_OFF'>CS_OPT_OFF</a></td>
+                           <td class='docblock short'>
+                                <p>Turn OFF an option - default option of CS_OPT_DETAIL, CS_OPT_SKIPDATA.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_OPT_ON.html'
+                                  title='capstone_sys::CS_OPT_ON'>CS_OPT_ON</a></td>
+                           <td class='docblock short'>
+                                <p>Turn ON an option (CS_OPT_DETAIL, CS_OPT_SKIPDATA).</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_OPT_SKIPDATA.html'
+                                  title='capstone_sys::CS_OPT_SKIPDATA'>CS_OPT_SKIPDATA</a></td>
+                           <td class='docblock short'>
+                                <p>Skip data when disassembling. Then engine is in SKIPDATA mode.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_OPT_SKIPDATA_SETUP.html'
+                                  title='capstone_sys::CS_OPT_SKIPDATA_SETUP'>CS_OPT_SKIPDATA_SETUP</a></td>
+                           <td class='docblock short'>
+                                <p>Setup user-defined function for SKIPDATA option</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_OPT_SYNTAX.html'
+                                  title='capstone_sys::CS_OPT_SYNTAX'>CS_OPT_SYNTAX</a></td>
+                           <td class='docblock short'>
+                                <p>Assembly output syntax</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_OPT_SYNTAX_ATT.html'
+                                  title='capstone_sys::CS_OPT_SYNTAX_ATT'>CS_OPT_SYNTAX_ATT</a></td>
+                           <td class='docblock short'>
+                                <p>X86 ATT asm syntax (CS_OPT_SYNTAX).</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_OPT_SYNTAX_DEFAULT.html'
+                                  title='capstone_sys::CS_OPT_SYNTAX_DEFAULT'>CS_OPT_SYNTAX_DEFAULT</a></td>
+                           <td class='docblock short'>
+                                <p>Default asm syntax (CS_OPT_SYNTAX).</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_OPT_SYNTAX_INTEL.html'
+                                  title='capstone_sys::CS_OPT_SYNTAX_INTEL'>CS_OPT_SYNTAX_INTEL</a></td>
+                           <td class='docblock short'>
+                                <p>X86 Intel asm syntax - default on X86 (CS_OPT_SYNTAX).</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_OPT_SYNTAX_NOREGNAME.html'
+                                  title='capstone_sys::CS_OPT_SYNTAX_NOREGNAME'>CS_OPT_SYNTAX_NOREGNAME</a></td>
+                           <td class='docblock short'>
+                                <p>Prints register name with only number (CS_OPT_SYNTAX)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_OP_FP.html'
+                                  title='capstone_sys::CS_OP_FP'>CS_OP_FP</a></td>
+                           <td class='docblock short'>
+                                <p>Floating-Point operand.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_OP_IMM.html'
+                                  title='capstone_sys::CS_OP_IMM'>CS_OP_IMM</a></td>
+                           <td class='docblock short'>
+                                <p>Immediate operand.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_OP_INVALID.html'
+                                  title='capstone_sys::CS_OP_INVALID'>CS_OP_INVALID</a></td>
+                           <td class='docblock short'>
+                                <p>Uninitialized/invalid operand.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_OP_MEM.html'
+                                  title='capstone_sys::CS_OP_MEM'>CS_OP_MEM</a></td>
+                           <td class='docblock short'>
+                                <p>Memory operand.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_OP_REG.html'
+                                  title='capstone_sys::CS_OP_REG'>CS_OP_REG</a></td>
+                           <td class='docblock short'>
+                                <p>Register operand.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_SUPPORT_DIET.html'
+                                  title='capstone_sys::CS_SUPPORT_DIET'>CS_SUPPORT_DIET</a></td>
+                           <td class='docblock short'>
+                                <p>Support value to verify diet mode of the engine.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.CS_SUPPORT_X86_REDUCE.html'
+                                  title='capstone_sys::CS_SUPPORT_X86_REDUCE'>CS_SUPPORT_X86_REDUCE</a></td>
+                           <td class='docblock short'>
+                                <p>Support value to verify X86 reduce mode of the engine.</p>
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_close.html'
+                                  title='capstone_sys::cs_close'>cs_close</a></td>
+                           <td class='docblock short'>
+                                <p>Close a Capstone <code>handle</code> (and zeroed it).</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_disasm.html'
+                                  title='capstone_sys::cs_disasm'>cs_disasm</a></td>
+                           <td class='docblock short'>
+                                <p>Disassemble binary code in context of <code>handle</code>, given the <code>code</code> buffer of size
+<code>code_size</code>, the base <code>address</code> and the desired number (<code>count</code>) of instructions to decode
+and set a pointer to an array of instructions and returns the number of decoded
+instructions and the size of the buffers.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_disasm_iter.html'
+                                  title='capstone_sys::cs_disasm_iter'>cs_disasm_iter</a></td>
+                           <td class='docblock short'>
+                                <p>Fast API to disassemble binary code, given the code buffer, size, address and number of
+instructions to be decoded.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_errno.html'
+                                  title='capstone_sys::cs_errno'>cs_errno</a></td>
+                           <td class='docblock short'>
+                                <p>Report the last error number for the given Capstone <code>handle</code> when some API function fail.
+Like glibc&#39;s <code>errno</code>, <code>cs_errno</code> might not retain its old value once accessed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_free.html'
+                                  title='capstone_sys::cs_free'>cs_free</a></td>
+                           <td class='docblock short'>
+                                <p>Free a Capstone allocated array of instruction.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_group_name.html'
+                                  title='capstone_sys::cs_group_name'>cs_group_name</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_insn_group.html'
+                                  title='capstone_sys::cs_insn_group'>cs_insn_group</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_insn_name.html'
+                                  title='capstone_sys::cs_insn_name'>cs_insn_name</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_malloc.html'
+                                  title='capstone_sys::cs_malloc'>cs_malloc</a></td>
+                           <td class='docblock short'>
+                                <p>Allocate a single instruction to be freed with <code>cs_free(insn, 1)</code>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_op_count.html'
+                                  title='capstone_sys::cs_op_count'>cs_op_count</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_op_index.html'
+                                  title='capstone_sys::cs_op_index'>cs_op_index</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_open.html'
+                                  title='capstone_sys::cs_open'>cs_open</a></td>
+                           <td class='docblock short'>
+                                <p>Initialize a Capstone <code>handle</code> (non-null pointer) for a given architecture type <code>arch</code>
+(<code>CS_ARCH_*</code>) and hardware <code>mode</code> (<code>CS_MODE_*</code>).</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_option.html'
+                                  title='capstone_sys::cs_option'>cs_option</a></td>
+                           <td class='docblock short'>
+                                <p>Set option <code>typ</code> with given <code>value</code> for disassembling engine at runtime.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_reg_name.html'
+                                  title='capstone_sys::cs_reg_name'>cs_reg_name</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_reg_read.html'
+                                  title='capstone_sys::cs_reg_read'>cs_reg_read</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_reg_write.html'
+                                  title='capstone_sys::cs_reg_write'>cs_reg_write</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_strerror.html'
+                                  title='capstone_sys::cs_strerror'>cs_strerror</a></td>
+                           <td class='docblock short'>
+                                <p>Return a string describing given error <code>code</code>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_support.html'
+                                  title='capstone_sys::cs_support'>cs_support</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cs_version.html'
+                                  title='capstone_sys::cs_version'>cs_version</a></td>
+                           <td class='docblock short'>
+                                <p>Return combined API version &amp; major and minor version numbers.</p>
+                           </td>
+                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.cs_arch.html'
+                                  title='capstone_sys::cs_arch'>cs_arch</a></td>
+                           <td class='docblock short'>
+                                <p>Architecture type</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.cs_calloc_t.html'
+                                  title='capstone_sys::cs_calloc_t'>cs_calloc_t</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.cs_err.html'
+                                  title='capstone_sys::cs_err'>cs_err</a></td>
+                           <td class='docblock short'>
+                                <p>All type of errors encountered by Capstone API.
+These are values returned by cs_errno()</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.cs_free_t.html'
+                                  title='capstone_sys::cs_free_t'>cs_free_t</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.cs_group_type.html'
+                                  title='capstone_sys::cs_group_type'>cs_group_type</a></td>
+                           <td class='docblock short'>
+                                <p>Common instruction groups - to be consistent across all architectures.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.cs_malloc_t.html'
+                                  title='capstone_sys::cs_malloc_t'>cs_malloc_t</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.cs_mode.html'
+                                  title='capstone_sys::cs_mode'>cs_mode</a></td>
+                           <td class='docblock short'>
+                                <p>Mode type (architecture variant, not all combination are possible)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.cs_op_type.html'
+                                  title='capstone_sys::cs_op_type'>cs_op_type</a></td>
+                           <td class='docblock short'>
+                                <p>Common instruction operand types - to be consistent across all architectures.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.cs_opt_type.html'
+                                  title='capstone_sys::cs_opt_type'>cs_opt_type</a></td>
+                           <td class='docblock short'>
+                                <p>Runtime option for the disassembled engine</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.cs_opt_value.html'
+                                  title='capstone_sys::cs_opt_value'>cs_opt_value</a></td>
+                           <td class='docblock short'>
+                                <p>Runtime option value (associated with option type above)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.cs_realloc_t.html'
+                                  title='capstone_sys::cs_realloc_t'>cs_realloc_t</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.cs_skipdata_cb_t.html'
+                                  title='capstone_sys::cs_skipdata_cb_t'>cs_skipdata_cb_t</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.cs_vsnprintf_t.html'
+                                  title='capstone_sys::cs_vsnprintf_t'>cs_vsnprintf_t</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.csh.html'
+                                  title='capstone_sys::csh'>csh</a></td>
+                           <td class='docblock short'>
+                                <p>Handle to a Capstone context</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.size_t.html'
+                                  title='capstone_sys::size_t'>size_t</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "capstone_sys";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

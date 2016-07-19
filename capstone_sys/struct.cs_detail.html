@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `cs_detail` struct in crate `capstone_sys`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, cs_detail">
+
+    <title>capstone_sys::cs_detail - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>capstone_sys</a></p><script>window.sidebarCurrent = {name: 'cs_detail', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>capstone_sys</a>::<wbr><a class='struct' href=''>cs_detail</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-7302' class='srclink' href='../src/capstone_sys/src/lib.rs.html#264-272' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct cs_detail {
+    pub regs_read: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; 12usize]</a>,
+    pub regs_read_count: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>,
+    pub regs_write: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; 20usize]</a>,
+    pub regs_write_count: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>,
+    pub groups: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; 8usize]</a>,
+    pub groups_count: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>,
+    // some fields omitted
+}</pre><h2 class='fields'>Fields</h2>
+<table><tr class='stab '>
+                             <td id='structfield.regs_read'><code>regs_read</code></td><td></td></tr><tr class='stab '>
+                             <td id='structfield.regs_read_count'><code>regs_read_count</code></td><td></td></tr><tr class='stab '>
+                             <td id='structfield.regs_write'><code>regs_write</code></td><td></td></tr><tr class='stab '>
+                             <td id='structfield.regs_write_count'><code>regs_write_count</code></td><td></td></tr><tr class='stab '>
+                             <td id='structfield.groups'><code>groups</code></td><td></td></tr><tr class='stab '>
+                             <td id='structfield.groups_count'><code>groups_count</code></td><td></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../capstone_sys/struct.cs_detail.html' title='capstone_sys::cs_detail'>cs_detail</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-7313' class='srclink' href='../src/capstone_sys/src/lib.rs.html#274-299' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.x86' class='method'><code>unsafe fn <a href='#method.x86' class='fnname'>x86</a>(&amp;self) -&gt; &amp;<a class='struct' href='../capstone_sys/x86/struct.cs_x86.html' title='capstone_sys::x86::cs_x86'>cs_x86</a></code></h4>
+<h4 id='method.arm64' class='method'><code>unsafe fn <a href='#method.arm64' class='fnname'>arm64</a>(&amp;self) -&gt; &amp;<a class='struct' href='../capstone_sys/arm64/struct.cs_arm64.html' title='capstone_sys::arm64::cs_arm64'>cs_arm64</a></code></h4>
+<h4 id='method.arm' class='method'><code>unsafe fn <a href='#method.arm' class='fnname'>arm</a>(&amp;self) -&gt; &amp;<a class='struct' href='../capstone_sys/arm/struct.cs_arm.html' title='capstone_sys::arm::cs_arm'>cs_arm</a></code></h4>
+<h4 id='method.mips' class='method'><code>unsafe fn <a href='#method.mips' class='fnname'>mips</a>(&amp;self) -&gt; &amp;<a class='struct' href='../capstone_sys/mips/struct.cs_mips.html' title='capstone_sys::mips::cs_mips'>cs_mips</a></code></h4>
+<h4 id='method.ppc' class='method'><code>unsafe fn <a href='#method.ppc' class='fnname'>ppc</a>(&amp;self) -&gt; &amp;<a class='struct' href='../capstone_sys/ppc/struct.cs_ppc.html' title='capstone_sys::ppc::cs_ppc'>cs_ppc</a></code></h4>
+<h4 id='method.sparc' class='method'><code>unsafe fn <a href='#method.sparc' class='fnname'>sparc</a>(&amp;self) -&gt; &amp;<a class='struct' href='../capstone_sys/sparc/struct.cs_sparc.html' title='capstone_sys::sparc::cs_sparc'>cs_sparc</a></code></h4>
+<h4 id='method.sysz' class='method'><code>unsafe fn <a href='#method.sysz' class='fnname'>sysz</a>(&amp;self) -&gt; &amp;<a class='struct' href='../capstone_sys/sysz/struct.cs_sysz.html' title='capstone_sys::sysz::cs_sysz'>cs_sysz</a></code></h4>
+<h4 id='method.xcore' class='method'><code>unsafe fn <a href='#method.xcore' class='fnname'>xcore</a>(&amp;self) -&gt; &amp;<a class='struct' href='../capstone_sys/xcore/struct.cs_xcore.html' title='capstone_sys::xcore::cs_xcore'>cs_xcore</a></code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "capstone_sys";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>
